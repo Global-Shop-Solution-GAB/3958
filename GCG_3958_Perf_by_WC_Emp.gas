@@ -1,0 +1,698 @@
+Program.Sub.ScreenSU.Start
+gui.Form1..create
+gui.Form1..caption("Performance by WC: Employee")
+gui.Form1..size(6630,5730)
+gui.Form1..minx(0)
+gui.Form1..miny(0)
+gui.Form1..position(0,0)
+gui.Form1..event(unload,form1_unload)
+gui.Form1..alwaysontop(False)
+gui.Form1..fontname("Arial")
+gui.Form1..fontsize(8)
+gui.Form1..forecolor(0)
+gui.Form1..fontstyle(,,,,)
+gui.Form1..BackColor(-2147483633)
+gui.Form1..controlbox(True)
+gui.Form1..maxbutton(True)
+gui.Form1..minbutton(True)
+gui.Form1..mousepointer(0)
+gui.Form1..moveable(True)
+gui.Form1..sizeable(True)
+gui.Form1..ShowInTaskBar(True)
+gui.Form1..titlebar(True)
+gui.Form1.lblBegEmp.create(label,"Beginning Employee",True,1950,270,1,200,150,True,0,Arial,8,-2147483633,0)
+gui.Form1.lblBegEmp.defaultvalue("")
+gui.Form1.lblBegEmp.controlgroup(0)
+gui.Form1.lblEndEmp.create(label,"Ending Employee",True,1935,255,1,2600,150,True,0,Arial,8,-2147483633,0)
+gui.Form1.lblEndEmp.defaultvalue("")
+gui.Form1.lblEndEmp.controlgroup(0)
+gui.Form1.lvw1.create(listview)
+gui.Form1.lvw1.view(3)
+gui.Form1.lvw1.addlistviewcolumn("Beginning Employee",3000,0)
+gui.Form1.lvw1.addlistviewcolumn("Ending Employee",3000,0)
+gui.Form1.lvw1.visible(True)
+gui.Form1.lvw1.size(6060,2595)
+gui.Form1.lvw1.zorder(0)
+gui.Form1.lvw1.position(200,1180)
+gui.Form1.lvw1.enabled(True)
+gui.Form1.lvw1.fontname("Arial")
+gui.Form1.lvw1.fontsize(8)
+gui.Form1.txtBegEmp.create(textbox,"",True,1500,300,0,200,400,True,0,Arial,8,-2147483643,1)
+gui.Form1.txtBegEmp.event(gotfocus,txtbegemp_gotfocus)
+gui.Form1.txtBegEmp.event(lostfocus,txtbegemp_lostfocus)
+gui.Form1.txtBegEmp.defaultvalue("")
+gui.Form1.txtBegEmp.controlgroup(0)
+gui.Form1.txtEndEmp.create(textbox,"",True,1500,300,0,2600,400,True,0,Arial,8,-2147483643,1)
+gui.Form1.txtEndEmp.event(click,txtendemp_click)
+gui.Form1.txtEndEmp.event(gotfocus,txtendemp_gotfocus)
+gui.Form1.txtEndEmp.defaultvalue("")
+gui.Form1.txtEndEmp.controlgroup(0)
+gui.Form1.cmdBegEmp.create(button)
+gui.Form1.cmdBegEmp.caption("^")
+gui.Form1.cmdBegEmp.visible(True)
+gui.Form1.cmdBegEmp.size(500,300)
+gui.Form1.cmdBegEmp.zorder(0)
+gui.Form1.cmdBegEmp.position(1830,400)
+gui.Form1.cmdBegEmp.enabled(True)
+gui.Form1.cmdBegEmp.fontname("Arial")
+gui.Form1.cmdBegEmp.fontsize(8)
+gui.Form1.cmdBegEmp.event(click,cmdbegemp_click)
+gui.Form1.cmdBegEmp.defaultvalue("")
+gui.Form1.cmdBegEmp.controlgroup(0)
+gui.Form1.cmdEndEmp.create(button)
+gui.Form1.cmdEndEmp.caption("^")
+gui.Form1.cmdEndEmp.visible(True)
+gui.Form1.cmdEndEmp.size(500,300)
+gui.Form1.cmdEndEmp.zorder(0)
+gui.Form1.cmdEndEmp.position(4215,400)
+gui.Form1.cmdEndEmp.enabled(True)
+gui.Form1.cmdEndEmp.fontname("Arial")
+gui.Form1.cmdEndEmp.fontsize(8)
+gui.Form1.cmdEndEmp.event(click,cmdendemp_click)
+gui.Form1.cmdEndEmp.defaultvalue("")
+gui.Form1.cmdEndEmp.controlgroup(0)
+gui.Form1.cmdAdd.create(button)
+gui.Form1.cmdAdd.caption("Add")
+gui.Form1.cmdAdd.visible(True)
+gui.Form1.cmdAdd.size(855,375)
+gui.Form1.cmdAdd.zorder(0)
+gui.Form1.cmdAdd.position(5225,400)
+gui.Form1.cmdAdd.enabled(True)
+gui.Form1.cmdAdd.fontname("Arial")
+gui.Form1.cmdAdd.fontsize(8)
+gui.Form1.cmdAdd.event(click,cmdadd_click)
+gui.Form1.cmdAdd.defaultvalue("")
+gui.Form1.cmdAdd.controlgroup(0)
+gui.Form1.cmdDelete.create(button)
+gui.Form1.cmdDelete.caption("Delete")
+gui.Form1.cmdDelete.visible(True)
+gui.Form1.cmdDelete.size(855,375)
+gui.Form1.cmdDelete.zorder(0)
+gui.Form1.cmdDelete.position(200,3960)
+gui.Form1.cmdDelete.enabled(True)
+gui.Form1.cmdDelete.fontname("Arial")
+gui.Form1.cmdDelete.fontsize(8)
+gui.Form1.cmdDelete.event(click,cmddelete_click)
+gui.Form1.cmdDelete.defaultvalue("")
+gui.Form1.cmdDelete.controlgroup(0)
+gui.Form1.cmdClear.create(button)
+gui.Form1.cmdClear.caption("Clear")
+gui.Form1.cmdClear.visible(True)
+gui.Form1.cmdClear.size(855,375)
+gui.Form1.cmdClear.zorder(0)
+gui.Form1.cmdClear.position(1240,3960)
+gui.Form1.cmdClear.enabled(True)
+gui.Form1.cmdClear.fontname("Arial")
+gui.Form1.cmdClear.fontsize(8)
+gui.Form1.cmdClear.event(click,cmdclear_click)
+gui.Form1.cmdClear.defaultvalue("")
+gui.Form1.cmdClear.controlgroup(0)
+gui.Form1.cmdPrint.create(button)
+gui.Form1.cmdPrint.caption("Print")
+gui.Form1.cmdPrint.visible(True)
+gui.Form1.cmdPrint.size(855,375)
+gui.Form1.cmdPrint.zorder(0)
+gui.Form1.cmdPrint.position(155,4535)
+gui.Form1.cmdPrint.enabled(True)
+gui.Form1.cmdPrint.fontname("Arial")
+gui.Form1.cmdPrint.fontsize(8)
+gui.Form1.cmdPrint.event(click,cmdprint_click)
+gui.Form1.cmdPrint.defaultvalue("")
+gui.Form1.cmdPrint.controlgroup(0)
+gui.Form1.chkAll.create(checkbox)
+gui.Form1.chkAll.caption("All Employees")
+gui.Form1.chkAll.visible(True)
+gui.Form1.chkAll.size(1935,255)
+gui.Form1.chkAll.zorder(0)
+gui.Form1.chkAll.position(260,820)
+gui.Form1.chkAll.enabled(True)
+gui.Form1.chkAll.alignment(0)
+gui.Form1.chkAll.fontname("Arial")
+gui.Form1.chkAll.fontsize(8)
+gui.Form1.chkAll.event(click,chkall_click)
+gui.Form1.chkAll.defaultvalue("")
+gui.Form1.chkAll.controlgroup(0)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.Global.iKey.Declare(Long,0)
+Variable.Global.IBIRunID.Declare(Long,0)
+Variable.Global.ILogID.Declare(Long,0)
+Variable.UDT.uEmpl.Define("SEQUENCE",String)
+Variable.UDT.uEmpl.Define("TRMNL",String)
+Variable.UDT.uEmpl.Define("RPTID",String)
+Variable.UDT.uEmpl.Define("WORK_ORDER",String)
+Variable.UDT.uEmpl.Define("WO_SUFFIX",String)
+Variable.UDT.uEmpl.Define("WO_SEQ",String)
+Variable.UDT.uEmpl.Define("SCRAP",Float)
+Variable.UDT.uEmpl.Define("STANDARD",Float)
+Variable.UDT.uEmpl.Define("sUser",String)
+Variable.UDT.uEmpl.Define("BIRUNID",Long)
+Variable.UDT.uEmpl.Define("ACTUAL",Float)
+Variable.UDT.uEmpl.Define("BIPRF_DATE",String)
+Variable.UDT.uEmpl.Define("CUST",String)
+Variable.UDT.uEmpl.Define("EMPL",String)
+Variable.UDT.uEmpl.Define("EMPLOYEE",String,EMPLOYEE)
+Variable.UDT.uEmpl.Define("GOOD",Float)
+Variable.UDT.uEmpl.Define("MACH",String)
+Variable.UDT.uEmpl.Define("PERF",Float)
+Variable.UDT.uEmpl.Define("REC_TYPE",String)
+Variable.UDT.uEmpl.Define("REPORT_HEAD1",String)
+Variable.UDT.uEmpl.Define("REPORT_HEAD2",String)
+Variable.UDT.uEmpl.Define("NAME",String)
+Variable.uGlobal.uEmpl.Declare("uEmpl")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Coded by: WAW
+'Date:5/28/15
+'This custom GAB script is a preproc for a custom crystal report that is a performance by WC based on Employee
+
+'open connection
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.puser,V.Ambient.PPass,20000)
+
+Gui.Form1..Visible(true)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3958_Perf_by_WC_Emp.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+program.sub.cmdbegemp_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdbegemp_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Beginning Employee Browser
+V.Local.sSql.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sWidths.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser(50,"",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.Form1.txtBegEmp.Text(V.Local.sRet.Trim)
+	Gui.Form1.txtendEmp.Text(V.Screen.Form1!txtBegEmp.Text)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdbegemp_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3958_Perf_by_WC_Emp.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdbegemp_click.end
+
+program.sub.cmdendemp_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdendemp_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sSql.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sWidths.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser(50,"",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.Form1.txtendEmp.Text(V.Local.sRet.Trim)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdendemp_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3958_Perf_by_WC_Emp.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdendemp_click.end
+
+program.sub.cmdadd_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdadd_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Employee Listview Add button
+
+V.Local.sSql.Declare(String)
+
+F.Intrinsic.control.If(V.screen.Form1!txtBegEmp.text,<," ")
+F.Intrinsic.control.andIf(V.screen.Form1!txtendEmp.text,<," ")
+	F.intrinsic.control.exitsub
+Function.Intrinsic.Control.EndIf
+
+F.Intrinsic.Math.Add(V.global.iKey,1,V.global.iKey)
+Gui.Form1.lvw1.AddListItem(V.global.iKey,V.Screen.Form1!txtBegEmp.Text)
+Gui.Form1.lvw1.SetListItemSubItemText(V.global.iKey,1,V.Screen.Form1!txtendEmp.Text)
+Gui.Form1.txtBegEmp.Text("")
+Gui.Form1.txtendEmp.Text("")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdadd_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3958_Perf_by_WC_Emp.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdadd_click.end
+
+program.sub.cmddelete_click.start
+F.Intrinsic.Control.SetErrorHandler("cmddelete_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Employee listview delete button
+V.Local.iKey.Declare(Long)
+V.Local.iOrd.Declare(Long)
+
+V.Local.iKey.Set(V.Screen.Form1!lvw1.SelectedItemKey)
+Gui.Form1.lvw1.removeitem(V.Local.iKey)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmddelete_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3958_Perf_by_WC_Emp.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmddelete_click.end
+
+program.sub.cmdclear_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdclear_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Employee listview clear button
+Gui.Form1.lvw1.ClearItems
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdclear_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3958_Perf_by_WC_Emp.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdclear_click.end
+
+program.sub.cmdprint_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdprint_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Print Button
+V.Local.ic.Declare(Long)
+V.Local.SSQL.Declare(String)
+
+Gui.Form1..Visible(False)
+
+F.Global.BI.GetRunID(V.Global.IBIRunID)
+
+F.Intrinsic.Control.CallSub(Select_employees)
+
+F.Intrinsic.Control.If(V.uGlobal.uEmpl,<>,-1)
+	'set the udt member values and field references for BIRUNID and USERID
+	F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uEmpl!BIRUNID,V.Global.IBIRunID)
+	F.Intrinsic.Variable.UDTSetMemberValue(V.uGlobal.uEmpl!sUser,V.Caller.User)
+	F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!BIRUNID,"BIRUNID")
+	F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!sUser,"USERID")
+
+	F.ODBC.Connection!con.OpenRecordsetRW("rst","GCG_3958_Perf_WC_Emp")
+
+		'clear everything in the custom table
+	F.ODBC.Connection!con.Execute("DELETE FROM GCG_3958_Perf_WC_Emp")
+
+	'save new information to the custom table
+	F.Intrinsic.Variable.saveudttorecordset("con","rst","v.uglobal.uEmpl")
+
+	F.Intrinsic.String.Build("DELETE FROM GCG_3958_Perf_WC_Empp where TRMNL = '' and BIRUNID = '{0}'",V.Global.IBIRunID,V.Local.SSQL)
+	F.ODBC.Connection!con.Execute(V.Local.SSQL)
+
+	F.ODBC.con!rst.Close
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.CallSub(Callbi)
+F.Intrinsic.Control.CallSub(Form1_unload)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdprint_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3958_Perf_by_WC_Emp.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdprint_click.end
+
+program.sub.chkall_click.start
+F.Intrinsic.Control.SetErrorHandler("chkall_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+' if  All Employees checkbox is checked
+
+F.Intrinsic.Control.If(V.Screen.Form1!chkAll.Value,=,1)
+'disable entry of employee range
+	Gui.Form1.txtBegEmp.Enabled(false)
+	Gui.Form1.txtEndEmp.Enabled(false)
+	Gui.Form1.cmdBegEmp.Enabled(false)
+	Gui.Form1.cmdEndEmp.Enabled(false)
+	Gui.Form1.cmdadd.Enabled(false)
+	Gui.Form1.cmdclear.Enabled(false)
+	Gui.Form1.cmddelete.Enabled(false)
+	Gui.Form1.txtBegEmp.Text("")
+	Gui.Form1.txtEndEmp.Text("")
+	Gui.Form1.lvw1.ClearItems
+
+F.Intrinsic.control.Else
+
+'enable entry of employee range
+	Gui.Form1.txtBegEmp.Enabled(true)
+	Gui.Form1.txtEndEmp.Enabled(true)
+	Gui.Form1.cmdBegEmp.Enabled(true)
+	Gui.Form1.cmdEndEmp.Enabled(true)
+	Gui.Form1.cmdadd.Enabled(true)
+	Gui.Form1.cmdclear.Enabled(true)
+	Gui.Form1.cmddelete.Enabled(true)
+	Gui.Form1.lvw1.ClearItems
+
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("chkall_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3958_Perf_by_WC_Emp.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.chkall_click.end
+
+program.sub.form1_unload.start
+F.Intrinsic.Control.SetErrorHandler("form1_form1_unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+
+'closes connection to the database	
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("form1_form1_unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3958_Perf_by_WC_Emp.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.form1_unload.end
+
+program.sub.txtbegemp_gotfocus.start
+F.Intrinsic.Control.SetErrorHandler("txtbegemp_gotfocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+Gui.Form1.txtBegEmp.SelectAll
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtbegemp_gotfocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3958_Perf_by_WC_Emp.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.txtbegemp_gotfocus.end
+
+program.sub.txtbegemp_lostfocus.start
+F.Intrinsic.Control.SetErrorHandler("txtbegemp_lostfocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+
+Gui.Form1.txtEndEmp.Text(V.Screen.Form1!txtBegEmp.Text)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtbegemp_lostfocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3958_Perf_by_WC_Emp.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.txtbegemp_lostfocus.end
+
+program.sub.txtendemp_gotfocus.start
+F.Intrinsic.Control.SetErrorHandler("txtendemp_gotfocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+Gui.Form1.txtEndEmp.SelectAll
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtendemp_gotfocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3958_Perf_by_WC_Emp.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.txtendemp_gotfocus.end
+
+Program.Sub.CallBI.Start
+F.Intrinsic.Control.SetErrorHandler("CallBI_Err")
+	F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sParams.Declare(String)
+V.Local.sValues.Declare(String)
+
+V.local.iret.declare(Long)
+
+V.Local.sParams.set("PRINT_ALL")
+V.Local.sValues.set(V.Screen.form1!chkAll.value)
+F.Intrinsic.Control.If(V.Local.sValues,=,1)
+	V.Local.sValues.Set("True")
+F.Intrinsic.Control.Else
+	V.Local.sValues.Set("False")
+F.Intrinsic.Control.EndIf
+
+F.Global.BI.RunReportPreProcessor(V.Global.IBIRunID,V.Global.ILogID,V.Local.sParams,V.Local.sValues,"",-1,True,"",-1,"",-1,"","",V.Local.iret)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("CallBI_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3958_Perf_by_WC_Emp.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.CallBI.End
+
+Program.Sub.Select_Employees.Start
+F.Intrinsic.Control.SetErrorHandler("Select_Employees_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.ssql.Declare(String)
+V.Local.srows.Declare(String)
+V.Local.srange.Declare(String)
+V.local.sRet.declare(String)
+V.Local.iC2.Declare(Long)
+V.Local.iC.Declare(Long)
+V.Local.iord.Declare(Long)
+V.Local.iLong.Declare(Long)
+V.local.bnosec.declare(Boolean)
+
+V.uGlobal.uEmpl.Redim(-1,-1)
+
+'if the include all employees checkbox is  checked then load the UDT with information for all employees
+F.Intrinsic.Control.If(V.Screen.Form1!chkAll.Value,=,1)
+
+	F.ODBC.Connection!con.OpenRecordsetRO("rst","SELECT EMPLOYEE FROM EMPLOYEE_MSTR")
+	F.Intrinsic.Variable.LoadUDTFromRecordset("con","rst","V.uGlobal.uEmpl",True,0)
+	F.ODBC.con!rst.close
+
+	F.Intrinsic.Control.For(V.Local.iC2,V.uGlobal.uEmpl.LBound,V.uGlobal.uEmpl.UBound,1)
+
+		F.Intrinsic.string.Build("SELECT A.TRMNL, A.RPTID, A.MACH, A.SEQUENCE, A.REC_TYPE, A.REPORT_HEAD1, A.REPORT_HEAD2, A.BIPRF_DATE, A.WORK_ORDER, A.WO_SUFFIX, A.WO_SEQ, A.EMPL, A.GOOD, A.SCRAP, A.STANDARD, A.ACTUAL, A.PERF, A.CUST, B.MACHINE, C.EMPLOYEE,C.NAME FROM V_LASER_WC_PERF A left JOIN V_WORKCENTERS  B ON A.MACH = B.MACHINE join V_EMPLOYEE_MSTR C on A.EMPL = C.EMPLOYEE WHERE A.EMPL =  '{0}'",V.uGlobal.uEmpl(v.Local.iC2)!EMPLOYEE,V.Local.ssql)
+		F.ODBC.Connection!con.OpenRecordsetRO("rst",V.local.ssql)
+		'clear the field reference for EMPLOYEE
+
+		F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,<>,True)
+
+			F.intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!EMPLOYEE,"")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!NAME,"NAME")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!SEQUENCE,"SEQUENCE")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!TRMNL,"TRMNL")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!MACH,"MACH")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!RPTID,"RPTID")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!REC_TYPE,"REC_TYPE")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!REPORT_HEAD1,"REPORT_HEAD1")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!REPORT_HEAD2,"REPORT_HEAD2")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!BIPRF_DATE,"BIPRF_DATE")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!WORK_ORDER,"WORK_ORDER")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!WO_SUFFIX,"WO_SUFFIX")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!WO_SEQ,"WO_SEQ")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!EMPL,"EMPL")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!GOOD,"GOOD")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!STANDARD,"STANDARD")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!ACTUAL,"ACTUAL")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!PERF,"PERF")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!CUST,"CUST")
+			F.Intrinsic.Variable.LoadUDTFromRecordset("con","rst","v.uglobal.uEmpl",True,10000)
+		F.Intrinsic.Control.EndIf
+			F.ODBC.con!rst.Close
+	F.Intrinsic.Control.Next(V.Local.iC2)
+'	F.ODBC.Connection!con.OpenRecordsetRO("rst","SELECT EMPLOYEE FROM EMPLOYEE_MSTR")
+'	F.Intrinsic.Variable.LoadUDTFromRecordset("con","rst","V.uGlobal.uEmpl",True,0)
+'	F.ODBC.con!rst.close
+
+F.Intrinsic.Control.Else
+	Gui.Form1.lvw1.RetrieveAllListItems(V.Local.srows)
+	F.Intrinsic.Control.If(V.local.srows,<>,"***NORETURN***")
+		F.Intrinsic.String.Split(V.Local.srows,"*!*",V.Local.srows)
+	' build recordsets from employee ranges
+		F.Intrinsic.Control.For(V.Local.ic,0,V.Local.srows.UBound,1)
+			Gui.Form1.lvw1.RetrieveItemOrdinal(V.local.srows(v.local.ic),V.local.iord)
+			V.Local.srange.Set(V.Screen.Form1!lvw1.ListItemTextExtended(v.Local.iord))
+			F.Intrinsic.String.Split(V.Local.srange,"*!*",V.Local.srange)
+			F.Intrinsic.string.Build("SELECT A.TRMNL, A.RPTID, A.MACH, A.SEQUENCE, A.REC_TYPE, A.REPORT_HEAD1, A.REPORT_HEAD2, A.BIPRF_DATE, A.WORK_ORDER, A.WO_SUFFIX, A.WO_SEQ, A.EMPL, A.GOOD, A.SCRAP, A.STANDARD, A.ACTUAL, A.PERF, A.CUST, B.MACHINE, C.EMPLOYEE, C.NAME  FROM V_LASER_WC_PERF A  left JOIN V_WORKCENTERS  B ON A.MACH = B.MACHINE join V_EMPLOYEE_MSTR C on A.EMPL = C.EMPLOYEE WHERE A.EMPL BETWEEN  '{0}' AND '{1}'",V.Local.srange(0),V.local.srange(1),V.Local.ssql)
+	'		F.Intrinsic.String.Build("SELECT EMPLOYEE FROM EMPLOYEE_MSTR WHERE EMPLOYEE BETWEEN '{0}' AND '{1}'",V.Local.srange(0),V.local.srange(1),V.Local.sSQL)
+			F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSQL)
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!SEQUENCE,"SEQUENCE")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!NAME,"NAME")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!TRMNL,"TRMNL")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!MACH,"MACH")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!RPTID,"RPTID")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!REC_TYPE,"REC_TYPE")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!REPORT_HEAD1,"REPORT_HEAD1")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!REPORT_HEAD2,"REPORT_HEAD2")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!BIPRF_DATE,"BIPRF_DATE")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!WORK_ORDER,"WORK_ORDER")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!WO_SUFFIX,"WO_SUFFIX")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!WO_SEQ,"WO_SEQ")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!EMPL,"EMPL")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!GOOD,"GOOD")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!STANDARD,"STANDARD")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!ACTUAL,"ACTUAL")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!PERF,"PERF")
+			F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!CUST,"CUST")
+
+			F.Intrinsic.Variable.LoadUDTFromRecordset("con","rst","v.uglobal.uEmpl",True,10000)
+			F.ODBC.con!rst.Close
+		F.Intrinsic.Control.Next(V.Local.ic)
+	
+	F.Intrinsic.Control.Endif
+F.Intrinsic.Control.EndIf
+
+'wc perf for loop
+'F.Intrinsic.Control.If(V.uGlobal.uEmpl,<>,-1)
+'	F.intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!EMPLOYEE,"")
+'
+'	F.Intrinsic.Control.For(V.Local.iC2,V.uGlobal.uEmpl.LBound,V.uGlobal.uEmpl.UBound,1)
+'		F.Intrinsic.string.Build("SELECT TRMNL, RPTID, MACH, SEQUENCE, REC_TYPE, REPORT_HEAD1, REPORT_HEAD2, BIPRF_DATE, WORK_ORDER, WO_SUFFIX, WO_SEQ, EMPL, GOOD, SCRAP, STANDARD, ACTUAL, PERF, CUST FROM V_LASER_WC_PERF INNER JOIN V_WORKCENTERS ON V_LASER_WC_PERF.MACH = V_WORKCENTERS.MACHINE WHERE EMPL =  '{0}'",V.uGlobal.uEmpl(v.Local.iC2)!EMPLOYEE,V.Local.ssql)
+'''		F.Intrinsic.string.Build("SELECT TRMNL, RPTID, MACH, SEQUENCE, REC_TYPE, REPORT_HEAD1, REPORT_HEAD2, BIPRF_DATE, WORK_ORDER, WO_SUFFIX, WO_SEQ, EMPLOYEE, EMPL, GOOD, SCRAP, STANDARD, ACTUAL, PERF, CUST FROM V_LASER_WC_PERF INNER JOIN V_WORKCENTERS ON V_LASER_WC_PERF.MACH = V_WORKCENTERS.MACHINE WHERE EMPL = '{0}'",V.uGlobal.uEmpl(v.Local.iC2)!EMPLOYEE,V.Local.ssql)
+'		F.ODBC.Connection!con.OpenRecordsetRO("rst",V.local.ssql)
+'		F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl(v.Local.iC2)!SEQUENCE,"SEQUENCE")
+'		F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!TRMNL,"TRMNL")
+'		F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!MACH,"MACH")
+'		F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!RPTID,"RPTID")
+'		F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!REC_TYPE,"REC_TYPE")
+'		F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!REPORT_HEAD1,"REPORT_HEAD1")
+'		F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!REPORT_HEAD2,"REPORT_HEAD2")
+'		F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!BIPRF_DATE,"BIPRF_DATE")
+'		F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!WORK_ORDER,"WORK_ORDER")
+'		F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!WO_SUFFIX,"WO_SUFFIX")
+'		F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!WO_SEQ,"WO_SEQ")
+'		F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!EMPL,"EMPL")
+'		F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!GOOD,"GOOD")
+'		F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!STANDARD,"STANDARD")
+'		F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!ACTUAL,"ACTUAL")
+'		F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!PERF,"PERF")
+'		F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uEmpl!CUST,"CUST")
+'		F.Intrinsic.Variable.LoadUDTFromRecordset("con","rst","v.uglobal.uEmpl",True,10000)
+'		F.ODBC.con!rst.Close
+'	F.Intrinsic.Control.Next(V.Local.iC2)
+'
+'F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Select_Employees_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3958_Perf_by_WC_Emp.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Form1_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Select_Employees.End
+
+Program.Sub.Comments.Start
+${$0$}$GCG_Perf_by_WC_Emp$}$WAW$}$5/28/2015
+Program.Sub.Comments.End
+
